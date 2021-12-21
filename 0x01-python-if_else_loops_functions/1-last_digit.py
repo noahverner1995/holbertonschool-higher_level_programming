@@ -13,8 +13,8 @@ if number < 0:
             lastDigit = number % 10
 
             if lastDigit > 5:
-                        print("{0:d} and is greater than 5".format(lastDigit))
+                        print("{0:d} and is greater than 5\n".format(lastDigit))
             elif lastDigit == 0:
-                        print("{1:d} and is 0".format(number, lastDigit))
+                        print("{1:d} and is 0\n".format(number, lastDigit))
             else:
-                        print("{1:d} and is less than 6 and not 0".format(number, lastDigit))
+                        print("{1:d} and is less than 6 and not 0\n".format(number, lastDigit))
