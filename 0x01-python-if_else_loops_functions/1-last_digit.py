@@ -1,20 +1,15 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-
-# "end" key of print function will set the string that needs
-#  to be appended when printing is done.
-# ends=""allow me to append and print in the conitionals, instead of new line.
-print("Last digit of {0:d} is ".format(number), end="\n")
-
-if number < 0:
-                number = number * -1
-
-                lastDigit = number % 10
-
-                if lastDigit > 5:
-                                print("{0:d} and is greater than 5".format(lastDigit))
-                elif lastDigit == 0:
-                                print("{1:d} and is 0".format(number, lastDigit))
+if (number < 0):
+                temp = (number * -1)
+                lastDigit = -1 * (int)(temp % 10)
+else:
+                temp = number
+                lastDigit = (int)(temp % 10)
+                if (lastDigit > 5):
+                print("Last digit of {:d} is {:d} and is greater than 5".format(number, lastDigit))
+                elif (lastDigit < 6 and lastDigit != 0):
+                                print("Last digit of {:d} is {:d} and is less than 6 and not 0".format(number, lastDigit))
                 else:
-                                print("{1:d} and is less than 6 and not 0".format(number, lastDigit))
+                                print("Last digit of {:d} is {:d} and is 0".format(number, lastDigit))
