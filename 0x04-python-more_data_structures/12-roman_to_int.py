@@ -1,16 +1,24 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if isinstance(roman_string, str) == False or roman_string == None:     
+    if not isinstance(roman_string, str) or roman_string is None:
         return 0
-    values={'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1}  
-    """Convert from Roman numerals to an integer."""
-    numbers = []
-    for char in roman_string:
-        numbers.append(values[char]) 
-    total = 0
-    for num1, num2 in zip(numbers, numbers[1:]):
-        if num1 >= num2:
-            total += num1
+
+    numberDict = {
+        "I": 1, "V": 5, "X": 10,
+        "L": 50, "C": 100, "D": 500, "M": 1000
+    }
+    resulList = []
+    for val in roman_string:
+        for key, value in numberDict.items():
+            if val == key:
+                resulList.append(value)
+    nElem = len(resulList)
+    if nElem <= 0:
+        return None
+    ans = 0
+    for i in range(nElem):
+        if i > 0 and resulList[i] > resulList[i-1]:
+            ans += resulList[i] - 2 * resulList[i-1]
         else:
-            total -= num1
-    return total + num2
+            ans += resulList[i]
+    return ans
